@@ -13,7 +13,7 @@ Windows 自用软件，以开源软件为主。
 
 在线笔记：Notion & 飞书 & flomo & Airtable & 简悦
 
-清单日历：滴答清单 & Trello & Habitify & 桌面日历 ~~& Workflowy~~
+清单日历：滴答清单 & [Super Productivity](https://github.com/johannesjo/super-productivity) & Trello & Habitify & 桌面日历 ~~& Workflowy~~
 
 记忆复习：思源笔记 ~~& [SuperMemo](https://github.com/L-M-Sherlock/sm18-lazy-package/releases/tag/1.1.3) & [kopia](https://github.com/kopia/kopia)(备份) & Anki~~
 
