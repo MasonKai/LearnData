@@ -106,7 +106,7 @@ export default sidebar({
               text: "FrondEnd",
               icon: "app",
               collapsible: true,
-              children: ["Vue.md", "HTML.md", "JavaScript.md", "Python.md"],
+              children: ["HTML.md", "Javascript.md", "Vue.md", "Python.md"],
             },
           ],
         },
@@ -129,7 +129,7 @@ export default sidebar({
       children: "structure",
     },
   ],
-  // 独立功能区
+  // 专题区（独立侧边栏）
   "/services/dockers-on-nas/": "structure",
   "/family/baby/": "structure",
 });
