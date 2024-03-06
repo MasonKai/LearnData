@@ -39,7 +39,7 @@ order: 2
 
 ## 安装应用
 
-使用 [winstall](https://newzone.top/posts/2022-03-21-winget_the_strongest_software_manager_for_windows.html) 可以批量安装应用，但这需要你提前登录微软账户，并更改 ps1 的运行权限。如果出现`InternetOpenUrl() failed. 0x80072f7d : unknown error` 则检查 TLS 是否开启 1.2 和 1.3。（每次使用四大行网银后，基本都需要修复次）
+使用 [winget](https://newzone.top/posts/2022-03-21-winget_the_strongest_software_manager_for_windows.html) 可以批量安装应用，但这需要你提前登录微软账户，并更改 ps1 的运行权限。如果出现 `InternetOpenUrl() failed. 0x80072f7d : unknown error` 则检查 TLS 是否开启 1.2 和 1.3。（每次使用四大行网银后，基本都需要修复次）
 
 ### Mircrosoft Store
 
