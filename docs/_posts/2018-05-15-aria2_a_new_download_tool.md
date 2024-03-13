@@ -33,7 +33,7 @@ Aria2 真·懒人包无需配置，下载即可使用，适合不想折腾的人
 
 将懒人包解压到 `D:\Aria2`，点击 `AriaNg 启动器.exe` 即可开始下载。两个启动器任选其一，都集成了后端服务和前端 UI，无需启动其他程序。包内均为开源绿色软件，不涉及任何隐私和安装，AutoHotkey 插件容易被误报。
 
-2023.12.03 更新 Aria2 1.37.0，AriaNG 1.3.7，重构启动器，并增加 bt-tracker 至 108 个，以便 BT 和磁力链接提速。
+2024.03.08 更新 Aria2 1.37.0，AriaNG 1.3.7，重构启动器，并增加 bt-tracker 至 108 个，以便 BT 和磁力链接提速。
 
 新增功能：任务开始、完成和出错时，会推送系统通知，可在 aria2.conf 的特别功能区块中设置通知的开启与关闭，此功能由 @我真的爱发明 提出。
 
@@ -51,7 +51,7 @@ Aria2 真·懒人包无需配置，下载即可使用，适合不想折腾的人
 
 3. 点击 `aria2.exe` 启动 aria2，系统托盘区会同步出现应用图标。
 
-4. 参照[懒人包配置](https://wwz.lanzouf.com/iwv6f0eadq9i)修改 `aria2.conf`，更多设置参考 [aria2c 官方文档](https://aria2.github.io/manual/en/html/aria2c.html)。^[[Aria2 基础上手指南](https://zhuanlan.zhihu.com/p/30666881)]
+4. 参照[懒人包配置](https://wwz.lanzouq.com/iX9MW1qptfzc)修改 `aria2.conf`，更多设置参考 [aria2c 官方文档](https://aria2.github.io/manual/en/html/aria2c.html)。^[[Aria2 基础上手指南](https://zhuanlan.zhihu.com/p/30666881)]
 
    修改默认下载目录：
 
@@ -113,9 +113,9 @@ Aria2 真·懒人包无需配置，下载即可使用，适合不想折腾的人
 
 ### Aira2 下载预热
 
-Aira2 下载预热是 BT 下载前的必备步骤，否则速度容易很慢。
+Aira2 懒人包已内置热门 Tracker，无需 DHT 预热即可进行 BT 下载。
 
-找一个热门影视的 BT 种子（注意是种子，不是磁力链接），然后下载并挂着做种。过几个小时后，退出 Aria2 或者等待 Aria2 会话自动保存，你会发现 dht.dat 从空文件变成有数据了，之后的 BT 下载速度就会快很多。
+如果你仍然觉得下载速度慢，则找一个热门影视的 BT 种子（注意是种子，不是磁力链接），然后下载并挂着做种。过几个小时后，退出 Aria2 或者等待 Aria2 会话自动保存，你会发现 dht.dat 从空文件变成有数据了，之后的 BT 下载速度就会快很多。
 
 > 很多 BT 客户端一样，Aria2 有个 dht.dat 文件 (开启 ipv6 还有个 dht6.dat)，这玩意用于存储一种叫做 DHT Routing Table 的东西，DHT 网络由无数节点组成，你接触到一个后能通过它接触到更多的节点，Aria2 我记得是有内置的节点，但是！如果你在 Aria2 第一次运行的时候直接下载磁力链接或者冷门种子，你很可能遇到连 MetaData 都无法获取的情况，这就是因为第一次只是初始化 dht.dat 文件，你本地不存在 DHT Routing Table 的缓存，所以你无法从 DHT 网络中获取足够的数据。^[[解决 Aria2 BT 下载速度慢没速度的问题](http://www.senra.me/solutions-to-aria2-bt-metalink-download-slowly/)]
 

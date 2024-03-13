@@ -1,5 +1,5 @@
 ---
-title: 投屏不再是难题！如何用免费开源软件 scrcpy 完美体验安卓投屏
+title: 一键变身高效办公神器：如何用 scrcpy 免费实现手机电脑投屏互控
 date: 2019-08-26
 category:
   - 工具
@@ -10,26 +10,28 @@ star: true
 order: -26
 ---
 
-[scrcpy](https://github.com/Genymobile/scrcpy) 是一款免费开源的投屏软件，可以将安卓手机屏幕投放在 Windows、macOS、GNU/Linux 上，并可以直接使用鼠标在投屏窗口中进行交互和录制。
+[scrcpy](https://github.com/Genymobile/scrcpy) 是一款免费开源的投屏软件，支持在 Windows、macOS、和 GNU/Linux 上运行，不仅能够将安卓设备的屏幕实时显示在电脑上，还支持鼠标和键盘操作，甚至可以进行屏幕录制和摄像头使用。市面上主流的多屏协同软件大多都是基于 scrcpy 开发的套壳产品，而且 bug 也没有得到修复，因此建议直接使用官方的 scrcpy。
 
-市面上主流的多屏协同软件大多都是基于 scrcpy 开发的套壳产品，而且 bug 也没有得到修复，因此建议直接使用官方的 scrcpy。
+本文将以 Windows 系统为例，介绍如何快速开始使用 scrcpy 进行有线和无线投屏。下载可以前往官方站点 [scrcpy-win64-v2.4.zip](https://github.com/Genymobile/scrcpy/releases/download/v2.4/scrcpy-win64-v2.4.zip)，或者使用 [国内搬运链接](https://wwz.lanzouq.com/ivPYD1qcs29e)。
 
-本文以 Windows 投屏为例，可以前往官方站点下载 [scrcpy-win64-v2.4.zip](https://github.com/Genymobile/scrcpy/releases/download/v2.4/scrcpy-win64-v2.4.zip)，或者使用[国内搬运链接](https://wwz.lanzouq.com/ivPYD1qcs29e)。
+## 快速入门
 
-## 有线投屏
+### 准备工作
 
-1. 下载并解压 scrcpy。
-2. 在手机上启用 `开发者选项` 和 `USB 调试`。要开启开发者选项，通常需要点击手机上的「设置/系统」>「关于手机」，然后连续点击版本号七次。返回上一屏幕后，你将在底部找到开发者选项。
-3. 使用数据线连接手机和电脑。手机上会弹出一个授权请求，请选择「允许 USB 调试」。
-4. 双击已解压的 `scrcpy.exe` 文件，即可开始有线投屏。
+1. **下载 scrcpy：** 访问 [scrcpy 发布页](https://github.com/Genymobile/scrcpy/releases) 下载最新版本的压缩包，然后解压。
+
+2. **开启手机的「开发者选项」和「USB 调试」：** 通常在手机的「设置/系统」>「关于手机」中，连续点击版本号 7 次，然后返回，你会在设置菜单底部找到开发者选项，请在其中启用「USB 调试」。
+
+### 有线投屏
+
+1. 使用 USB 数据线将手机连接至电脑，并在手机上允许 USB 调试。
+2. 打开解压后的 scrcpy 文件夹，双击 `scrcpy.exe` 启动投屏。
 
 若需在手机黑屏时继续投屏，请按以下步骤操作：当手机屏幕亮起并解锁后，连接至电脑，然后输入命令 `.\scrcpy --turn-screen-off`。此操作会关闭手机屏幕，但投屏功能继续正常运行。
 
-## 无线投屏
+### 无线投屏
 
-无线投屏的前提是，电脑和手机处于**同一局域网**中。
-
-有线投屏中的前三步也适用于无线投屏，完成这些步骤后，打开 PowerShell（~ cmd），依次输入操作命令。
+完成有线投屏的步骤后，在电脑上打开命令行工具（如 PowerShell），按序执行以下操作命令。无线投屏前，请确保电脑和手机处于**同一 WiFi 网络**下。
 
 ```shell
 # a.将命令目录切换到 scrcpy 文件夹。如果使用的是 Windows 11，在 scrcpy 文件夹中右键点击「在终端中打开」，会自动切换到当前路径。
@@ -54,13 +56,15 @@ cd D:\Libraries\Desktop\scrcpy-win64-v2.4
 # 简化操作：合并步骤 c 和 d，保持屏幕常亮，指定 1024 分辨率。
 .\scrcpy --tcpip=192.168.2.20 -w -m 1024
 
-# Android 12 以上的设备可使用相机投屏
-.\scrcpy --video-source=camera
+# 以H.265（质量更好）捕获屏幕，限制尺寸为1920，限制帧速率为60fps，禁用音频，并通过模拟物理键盘控制设备：
+.\scrcpy --video-codec=h265 --max-size=1920 --max-fps=60 --no-audio --keyboard=uhid
 ```
 
 ![](https://img.newzone.top/20190829093407.png "scrcpy 命令行截图")
 
-## 屏幕录制
+## 进阶功能
+
+### 屏幕录制
 
 如果想在投屏的同时，对手机屏幕进行录制，可以输入下方命令进行操作。
 
@@ -74,15 +78,38 @@ cd D:\Libraries\Desktop\scrcpy-win64-v2.4
 # 关闭投屏窗口后，自动停止录屏并将视频保存在相应的目录中。
 ```
 
+### 手机当摄像头
+
+Android 12 及以上版本支持使用 scrcpy 将手机摄像头投屏至电脑。更多设置方法参考 [scrcpy camera 文档](https://github.com/Genymobile/scrcpy/blob/master/doc/camera.md)。
+
+```shell
+#列出可用的相机（及摄像头的有效尺寸和帧速率）
+.\scrcpy --list-cameras
+.\scrcpy --list-camera-sizes
+
+#捕获相机（默认为后置摄像头，同时捕获音频）。如需禁用音频，则添加 `--no-audio`
+.\scrcpy --video-source=camera
+
+#默认情况下，相机以 Android 的默认帧速率 (30 fps) 进行拍摄
+.\scrcpy --video-source=camera --camera-fps=60
+
+#将设备摄像头以 1920x1080 的 H.265（和麦克风）录制到 MP4 文件
+.\scrcpy --video-source=camera --video-codec=h265 --camera-size=1920x1080 --record=file.mp4
+
+#使用高速拍摄模式来形成视频，参数来自 `--list-camera-sizes`
+.\scrcpy --video-source=camera --camera-size=1920x1080 --camera-fps=240
+```
+
 ## 常见问题
 
 ### 错误检查
 
-遇到报错时，检查下列三种情况，可以解决 90% 的错误：
+遇到错误时，请检查以下四种情况，这可以帮助解决大约 90% 的问题：
 
-- 更换数据线（最好使用**原装数据线**）；
-- 检查手机的「本机 IP」是否正确；
-- 核对有线连接步骤，选择「开启 USB 调试」>「连接手机与电脑」>「启动 scrcpy」。
+- 使用**原装数据线**替换当前数据线。
+- 尝试更换 USB 端口，避免使用 USB 扩展端口，因为电力不足的 USB 端口可能会导致 `Device disconnected` 报错。
+- 确认手机的**本机 IP** 设置是否正确。
+- 仔细核对有线连接的步骤：先开启 USB 调试，然后连接手机与电脑，最后启动 scrcpy。
 
 ### Could not find any ADB device
 
