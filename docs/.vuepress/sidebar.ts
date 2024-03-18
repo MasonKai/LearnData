@@ -130,6 +130,75 @@ export default sidebar({
     },
   ],
   // 专题区（独立侧边栏）
-  "/services/dockers-on-nas/": "structure",
   "/family/baby/": "structure",
+  // 专题区（自定义侧边结构）
+  "/services/dockers-on-nas/": [
+    {
+      text: "🎬 影视音乐",
+      icon: "",
+      prefix: "",
+      collapsible: true,
+      children: ["emby.md", "xiaoya.md", "navidrome.md", "mt-photos.md"],
+    },
+    {
+      text: "📚 娱乐阅读",
+      icon: "",
+      prefix: "",
+      collapsible: true,
+      children: ["reader.md", "tachidesk.md"],
+    },
+    {
+      text: "☁️ 同步网盘",
+      icon: "",
+      prefix: "",
+      collapsible: true,
+      children: ["syncthing.md", "nextcloud.md", "alist.md"],
+    },
+    {
+      text: "📄 文档管理",
+      icon: "",
+      prefix: "",
+      collapsible: true,
+      children: ["docsify.md", "paperless-ngx.md", "gitlab.md"],
+    },
+    {
+      text: "📝 自我记录",
+      icon: "",
+      prefix: "",
+      collapsible: true,
+      children: ["memos.md", "srs-stack.md"],
+    },
+    {
+      text: "🔧 监控与自动化",
+      icon: "",
+      prefix: "",
+      collapsible: true,
+      children: ["n8n.md", "uptime-kuma.md", "qinglong.md", "ntfy.md", "qbittorrent.md"],
+    },
+    {
+      text: "📡 后端服务",
+      icon: "",
+      prefix: "",
+      collapsible: true,
+      children: ["reverse-proxy.md", "cors-anywhere.md", "deeplx.md"],
+    },
+    {
+      text: "其他",
+      icon: "",
+      prefix: "",
+      collapsible: true,
+      children: [
+        "stirling-pdf.md",
+        "grocy.md",
+        "grampsjs.md",
+        {
+          text: "🧭 导航面板",
+          icon: "",
+          prefix: "",
+          collapsible: true,
+          children: ["flare.md", "sun-panel.md", "homarr.md"],
+        },
+      ],
+    },
+  ],
 });
