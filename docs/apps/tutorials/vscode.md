@@ -10,6 +10,7 @@ order: 3
 
 - **AutoCorrect**：这个插件是写作纠错的佼佼者，特别是在处理中英文混排时的空格问题，但它尚未支持中英标点符号的自动转换。
 - **Pangu-Markdown**：对于想在 Markdown 文档中为超链接和文本之间自动添加空格的用户来说，这个插件是个不错的选择。它也能够在中英文字符之间添加空格，从而优化 Markdown 文档的排版。但 Pangu-Markdown 需要手动唤起命令面板，并应用 `Pangu Format` 来格式化文本。
+- **VS Code Speech**：在 VS Code 中使用的离线语音转文字扩展，支持流式语音输入。激活热键是 `Ctrl+Alt+V`。
 
 ## Markdown 增强
 

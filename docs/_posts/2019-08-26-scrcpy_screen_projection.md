@@ -106,6 +106,9 @@ Android 12 及以上的用户可以借助 scrcpy 直接将手机的摄像头画�
 
   ```shell
   .\scrcpy --video-source=camera --video-codec=h265 --camera-size=1920x1080 --record=file.mp4
+
+  # 捕获音频，但不播放
+  .\scrcpy --video-source=camera --video-codec=h265 --camera-size=1920x1080 --no-audio-playback --record=file.mp4
   ```
 
 - **直播采集**：我经常用 scrcpy 将手机摄像头变为直播视频源。通常，我会设置摄像头的分辨率为 1920x1080，关闭音频功能，并通过 `--orientation` 参数来调整视频的方向。
@@ -113,6 +116,7 @@ Android 12 及以上的用户可以借助 scrcpy 直接将手机的摄像头画�
   ```shell
   # 横屏模式
   .\scrcpy --video-source=camera --camera-size=1920x1080 --no-audio
+  .\scrcpy --video-source=camera --camera-size=1920x1080 --no-audio-playback
 
   # 竖屏模式
   .\scrcpy --video-source=camera --camera-size=1920x1080 --no-audio --orientation=90
@@ -126,7 +130,7 @@ Android 12 及以上的用户可以借助 scrcpy 直接将手机的摄像头画�
 
 ### 核对连接设置
 
-- **原装数据线**：若遇到连接问题，首先确保使用的是原装数据线。低质量的数据线可能导致连接不稳定。
+- **原装数据线**：若遇到连接问题，首先确保使用的是原装数据线。低质量的数据线可能导致连接不稳定，或出现 `error: no devices/emulators found` 报错。
 
 - **直连 USB 端口**：尝试更换电脑上的 USB 端口，优先直连电脑端口而非使用 USB 集线器，特别是遇到 `Device disconnected` 报错时。
 

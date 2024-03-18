@@ -93,7 +93,7 @@ Windows 自用软件，以开源软件为主。
 
 浏览器：Chrome & Firefox(资源) & Brave(工具/书签) & Edge(移动端) & Tor ~~& Vivaldi & Tor & 猎豹 & 360 & 搜狗 & Maxthon & 百度~~
 
-输入法：小狼毫 & `Win+H`（系统语音输入）~~& QuickCut & 讯飞语记 & 微软输入法 & 影子输入法 & 搜狗输入法 & 讯飞输入法 & 百度输入法~~
+输入法：小狼毫 & `Win+H`（系统语音输入）& [CapsWriter-Offline](https://github.com/HaujetZhao/CapsWriter-Offline) ~~& QuickCut & 讯飞语记 & 微软输入法 & 影子输入法 & 搜狗输入法 & 讯飞输入法 & 百度输入法~~
 
 通讯：微信 & TIM & Telegram & Discord & Thunderbird(邮箱) ~~& 飞书 & Slack & 钉耙 & 千牛 & 阿里旺旺~~
 
