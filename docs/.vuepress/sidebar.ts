@@ -138,7 +138,7 @@ export default sidebar({
       icon: "",
       prefix: "",
       collapsible: true,
-      children: ["emby.md", "xiaoya.md", "navidrome.md", "mt-photos.md"],
+      children: ["emby.md", "xiaoya.md", "navidrome.md", "mt-photos.md", "xteve.md"],
     },
     {
       text: "📚 娱乐阅读",

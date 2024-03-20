@@ -1,10 +1,12 @@
 ---
 article: false
-title: 小雅 alist：影视资源合集
+title: 小雅 Alist：影视资源合集
 order: 2
 ---
 
 小雅 Alist 是一款基于阿里云盘的解决方案，提供了一个整合了丰富影音资源的平台，大大简化了用户寻找和管理资源的过程。通过 [xiaoyaliu/alist](https://hub.docker.com/r/xiaoyaliu/alist) Docker 镜像，你可以快速部署小雅 Alist 服务。具体的配置步骤和方法，可以参考 [xiaoya docker 配置指南](https://xiaoyaliu.notion.site/xiaoya-docker-69404af849504fa5bcf9f2dd5ecaa75f)。
+
+![](https://img.newzone.top/2024-03-19-20-12-02.png?imageMogr2/format/webp)
 
 在使用小雅 Alist 过程中，需要注意的一个关键点是定期更新 mytoken。你可以通过访问 <https://aliyuntoken.vercel.app/> 并使用阿里云盘 app 扫描网页上的二维码，轻松地获取最新的 token。
 
@@ -25,7 +27,9 @@ bash -c "$(curl http://docker.xiaoya.pro/update_metainfo.sh)" -s /volume1/docker
 
 我尝试将资源保存到我的阿里云盘，但未能成功。即使我通过 `show_my_ali.txt` 文件在小雅 Alist 中成功显示了我的云盘内容，移动和复制操作仍然失败，错误提示为 `Request failed with status code 403`。目前，对于这个问题，我只能通过下载单个文件作为临时解决方案。
 
-## 部署代码
+## 部署小雅 Alist
+
+以下是小雅 Alist 的 Docker 部署示例，帮助你快速开始：
 
 ```yml
 version: "3.3"
