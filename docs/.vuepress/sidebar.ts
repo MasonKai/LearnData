@@ -51,12 +51,24 @@ export default sidebar({
       children: "structure",
     },
     {
-      text: "🪟 系统问题",
+      text: "🪟 Win 系统",
       icon: "",
       prefix: "/windows/",
       link: "",
       collapsible: true,
-      children: "structure",
+      children: [
+        "NewSystem.md",
+        "screen.md",
+        "faq.md",
+        {
+          text: "进阶技巧",
+          icon: "windows",
+          prefix: "wintips/",
+          link: "",
+          collapsible: true,
+          children: "structure",
+        },
+      ],
     },
     {
       text: "🔡 代码编程",
