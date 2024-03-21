@@ -10,9 +10,9 @@ order: 82
 
 虽然 Uptime Kuma 本身不提供后续自动化操作，但它能够通过 webhook 来触发 n8n 等自动化操作。
 
-## 部署命令
+## 部署代码
 
-使用以下 Docker 配置可以快速部署 Uptime Kuma：
+推荐通过 Docker Compose 部署 Uptime Kuma，详情请见 [Docker Compose 部署教程](./#%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B)。以下是 Docker Compose 配置示例：
 
 ```yml
 version: "3.8"
@@ -23,9 +23,10 @@ services:
     container_name: uptime-kuma
     volumes:
       - /volume1/docker/uptime-kuma/data:/app/data
-      # 用于 Docker 容器监控
-      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock # 用于 Docker 容器监控
     ports:
       - "3001:3001" # <Host Port>:<Container Port>
     restart: always
 ```
+
+完成上述部署后，Uptime Kuma 服务将在你的服务器上启动。你可以通过浏览器访问 `http://<你的服务器IP或域名>:3001` 来使用 Uptime Kuma 的监控服务。这将为你提供一个可视化的界面，通过它你可以轻松地添加和管理监控项。

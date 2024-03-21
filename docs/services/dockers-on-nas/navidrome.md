@@ -4,11 +4,15 @@ title: Navidrome：开源音乐服务器
 order: 3
 ---
 
-Navidrome 为开源自托管音乐服务器，提供音频流媒体服务。
+Navidrome 是一款开源且完全免费的自托管音乐服务器，它提供音频流媒体服务。相比于 Roon 的高昂定价以及 Emby 和 Plex 主要针对视频的定位，Navidrome 为用户提供了一个免费而全面的音频解决方案。它不仅支持 MP3、FLAC、AAC 和 OGG 等多种音频格式，还能为多个用户有效管理音乐库，确保每位用户的体验互不干扰。
 
-鉴于 Roon 的定价较高且 Emby 和 Plex 主要针对视频，Navidrome 成为了一个免费的选择。它支持广泛的音频格式，如 MP3、FLAC、AAC 和 OGG 等，并能有效地为多个用户管理其音乐库，确保每位用户的体验互不冲突。
+![](https://img.newzone.top/2024-03-21-10-21-01.png?imageMogr2/format/webp)
 
-想要了解其他安装方法，你可以查看 [Navidrome 的官方教程](https://www.navidrome.org/docs/installation/docker/)。
+Navidrome 的部署和使用极为简单，支持 Docker 等多种安装方式，具体可以参考 [Navidrome 的官方教程](https://www.navidrome.org/docs/installation/docker/)。
+
+## 部署代码
+
+推荐通过 Docker Compose 部署 Navidrome，详情请见 [Docker Compose 部署教程](./#%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B)。以下是 Docker Compose 配置示例：
 
 ```yml
 version: "3"
@@ -31,8 +35,8 @@ services:
       - "/volume4/Music/Audio:/music:ro"
 ```
 
-不过，Navidrome 并不提供歌词下载功能。如果你需要下载内置的歌词，可以通过 [MusicTag](https://www.cnblogs.com/vinlxc/p/11347744.html) 实现。
+部署完成后，通过浏览器访问 `http://<你的服务器IP或域名>:4533` 即可访问你的 Navidrome 音乐流服务。
 
-对于播放器的选择，推荐使用国产的 [音流](https://aqzscn.cn/archives/stream-music-versions) 播放器。它当前正处于内测阶段，支持 iOS 和 Android 平台，能够显示下载的内置歌词。
+尽管 Navidrome 不内置歌词下载功能，但你可以通过第三方工具，如 [MusicTag](https://www.cnblogs.com/vinlxc/p/11347744.html)，来下载并管理歌词。此外，推荐使用 [音流](https://aqzscn.cn/archives/stream-music-versions) 播放器，它支持 iOS、Android 和 Windows 平台，并能显示下载的内置歌词。
 
-然而，Navidrome 也有其局限性：它不支持显示多行歌词，搜索功能以专辑为单位，这使得直接搜索特定歌曲可能不会总是准确。另外，Windows 客户端不支持显示歌词功能。因此，我转向使用 Emby 来管理 PC 端音乐。然而，Emby 流媒体播放时偶尔会断播，与之对比，Navidrome 在音乐流播放方面更稳定，并且更适合用于移动端 API。
+Navidrome 在多用户管理、音乐流稳定性方面表现优异，但也存在一些局限性，如不支持多行歌词显示，搜索功能以专辑为单位，可能不利于精确搜索特定歌曲。

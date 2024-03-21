@@ -4,27 +4,9 @@ title: Alist：聚合网盘
 order: 23
 ---
 
-[Alist](https://alist.nn.ci/zh/guide/install/docker.html) 是支持多种存储的文件列表程序，支持本地存储、阿里云盘、OneDrive、Google Drive 等。
+[Alist](https://alist.nn.ci/zh/guide/install/docker.html) 是一款支持多种存储服务的文件列表程序，它允许用户将文件保存在本地存储、阿里云盘、OneDrive、Google Drive 等多个平台上。对于需要将大文件分享且受限于免费云存储服务大小限制的用户来说，Alist 提供了一个理想的解决方案，使其成为私人轻量级网盘分享应用的绝佳选择。
 
-原本我的文件保存在蓝奏云上，但免费用户有 100M 的限制，因此我将一些要分享的大文件放在 Alist，作为私人轻量网盘分享应用和文件。
-
-```yml
-version: "3.3"
-services:
-  alist:
-    image: xhofe/alist:latest
-    container_name: alist
-    volumes:
-      - /volume1/docker/alist/data:/opt/alist/data
-    ports:
-      - 9044:5244
-    environment:
-      - PUID=1026
-      - PGID=100
-      - UMASK=022
-      - TZ=Asia/Shanghai
-    restart: always
-```
+![](https://img.newzone.top/2024-03-21-15-35-43.png?imageMogr2/format/webp)
 
 ## 重置密码
 
@@ -55,3 +37,29 @@ sudo docker exec -it alist ./alist admin set NEW_PASSWORD
 - 写入：允许访客新建目录、新文件和上传文件。
 - 隐藏：此路径要隐藏的对象，每行一个正则表达式。
 - 说明：进入该路径时渲染的自述文件，支持 Markdown 内容或 Markdown 链接。
+
+## 部署代码
+
+推荐通过 Docker Compose 部署 Alist，详情请见 [Docker Compose 部署教程](./#%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B)。以下是 Docker Compose 配置示例：
+
+```yml
+version: "3.3"
+services:
+  alist:
+    image: xhofe/alist:latest
+    container_name: alist
+    volumes:
+      - /volume1/docker/alist/data:/opt/alist/data
+    ports:
+      - 9044:5244
+    environment:
+      - PUID=1026
+      - PGID=100
+      - UMASK=022
+      - TZ=Asia/Shanghai
+    restart: always
+```
+
+部署完成后，通过浏览器访问 `http://<你的服务器IP或域名>:9044` 即可使用 Alist 管理和分享文件。
+
+Alist 提供了一个高效、灵活的方式来聚合和管理分散在不同存储服务中的文件。无论是个人还是团队，都可以从中受益，享受到便捷的文件管理和分享体验。希望这篇文章能帮助你更好地理解和使用 Alist。如果在使用过程中遇到任何问题，欢迎交流探讨解决方案。

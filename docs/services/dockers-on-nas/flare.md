@@ -13,9 +13,11 @@ order: 93
 
 **存在的问题**：Flare 无法打开 `chrome://extensions/` 等非标准格式的链接。
 
+![](https://img.newzone.top/2024-03-21-15-08-37.png?imageMogr2/format/webp)
+
 ## 部署代码
 
-使用以下的 Docker 配置文件，你可以轻松部署 Flare，享受快速而强大的本地导航体验。
+推荐通过 Docker Compose 部署 Flare，详情请见 [Docker Compose 部署教程](./#%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B)。以下是 Docker Compose 配置示例：
 
 ```yml
 version: '3.6'
@@ -43,3 +45,7 @@ services:
     volumes:
       - /volume1/docker/flare/app:/app
 ```
+
+部署完成后，通过浏览器访问 `http://<你的服务器IP或域名>:7570`，即可开始使用 Flare 书签导航。
+
+为了获得最佳体验，建议搭配浏览器扩展 [Custom New Tab URL](https://chromewebstore.google.com/detail/custom-new-tab-url/mmjbdbjnoablegbkcklggeknkfcjkjia) 使用，这样可以将浏览器的默认新标签页设置为 Flare 导航页，进一步提升访问效率。

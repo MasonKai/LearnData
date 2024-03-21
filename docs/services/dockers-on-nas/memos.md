@@ -4,7 +4,11 @@ title: Memos：碎片化记录
 order: 34
 ---
 
-[Memos](https://github.com/usememos/memos) 可视为开源版的 flomo，其界面及功能非常相似，适用于碎片化记录和灵感捕捉，同时支持小范围的分享，适用于个人微博记录。Memos 能以时间线形式回顾你选择的日期的记录，并允许通过 Telegram 机器人输入内容。此外，你还可以选择将数据保存在第三方云存储中。
+[Memos](https://github.com/usememos/memos) 是一款开源的碎片化记录工具，以其界面简洁、功能丰富而备受欢迎。不同于商业软件 flomo，Memos 提供了更为灵活的数据存储选项和便捷的分享功能，特别适合用于个人的灵感记录和微博式分享。它能以时间线形式回顾你选择的日期的记录，并允许通过 Telegram 机器人输入内容。此外，你还可以选择将数据保存在第三方云存储中，增加了数据存储的灵活性。
+
+## 部署代码
+
+推荐通过 Docker Compose 部署 Memos，详情请见 [Docker Compose 部署教程](./#%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B)。以下是 Docker Compose 配置示例：
 
 ```yml
 version: "3.0"
@@ -17,6 +21,10 @@ services:
     ports:
       - 5230:5230
 ```
+
+部署完成后，通过浏览器访问 `http://<你的服务器IP或域名>:5230` 即可自制 Memos。
+
+## 扩展
 
 如果你使用 Obsidian，还可以考虑使用其插件 [Obsidian-Memos](https://github.com/Quorafind/Obsidian-Memos)，它与 Memos 功能类似，但笔记将保存在 Obsidian 中。你还可以使用 Memos Sync 插件将 memos 记录同步至 Obsidian。
 
@@ -33,3 +41,5 @@ flomo 支持将所有笔记导出，并允许通过微信输入内容。flomo Pr
 - Marketplace 是最重要研究的领域
 - Sheep、Books 是最重要的资源（Sheep 是指人物，即羔羊）
 - 三醒吾身：日记
+
+通过合理利用这些标签，用户可以更有效地管理和回顾自己的记录，从而提高个人效率和创造力。

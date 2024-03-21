@@ -10,6 +10,10 @@ Grocy Docker 端默认的账户密码是 `admin`。要将界面语言设置为�
 
 如果你想在移动设备上扫描物品的条形码，可以按照以下步骤操作：点击右上角的菜单，选择「管理 API 秘钥」，然后点击「添加」和「生成 API 秘钥」。接下来，点击生成的秘钥旁边的第二个按钮，使用移动客户端扫描显示在页面上的二维码。然而，个人认为在家庭使用中，扫码功能可能并不是必需的。
 
+## 部署代码
+
+推荐通过 Docker Compose 部署 Grocy，详情请见 [Docker Compose 部署教程](./#%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B)。以下是 Docker Compose 配置示例：
+
 ```yml
 # https://hub.docker.com/r/linuxserver/grocy
 version: "2.1"
@@ -27,3 +31,5 @@ services:
       - 9020:80
     restart: unless-stopped
 ```
+
+部署完成后，通过浏览器访问 `http://<你的服务器IP或域名>:9020` 即可使用 Grocy。

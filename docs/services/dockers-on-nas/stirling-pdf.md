@@ -8,9 +8,9 @@ order: 31
 
 ![](https://img.newzone.top/2024-01-16-02-15-55.png?imageMogr2/format/webp)
 
-## 部署命令
+## 部署代码
 
-以下是一个简单的 Docker 部署示例，展示了如何快速启动 Stirling-PDF 服务：
+推荐通过 Docker Compose 部署 Stirling-PDF，详情请见 [Docker Compose 部署教程](./#%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B)。以下是 Docker Compose 配置示例：
 
 ```yml
 version: '3.3'
@@ -29,4 +29,4 @@ services:
       - DOCKER_ENABLE_SECURITY=false # 为了简化部署，暂时关闭 Docker 的安全设置
 ```
 
-Stirling-PDF 作为一款强大的开源 PDF 处理工具，其多样的功能能够满足大多数日常的需求。无论你是需要简单的文件合并，还是更复杂的文档重组和编辑，Stirling-PDF 都能为你提供帮助。
+部署完成后，通过浏览器访问 `http://<你的服务器IP或域名>:7581` 即可使用 Stirling-PDF 工具箱。

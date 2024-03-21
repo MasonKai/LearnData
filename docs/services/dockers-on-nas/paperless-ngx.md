@@ -4,11 +4,15 @@ title: Paperless-ngx：全文管理文档
 order: 32
 ---
 
-[Paperless-ngx](https://docs.paperless-ngx.com/) 是一个开源文档管理系统，可将您的物理文档转换为可搜索的在线档案。
+[Paperless-ngx](https://docs.paperless-ngx.com/) 是一个强大的开源文档管理系统，它可以将您的物理文档通过 OCR 转换成可搜索的数字档案。支持包括 PDF、图片、纯文本文件以及 Office 文档等多种格式，Paperless-ngx 能够极大地提高您文档管理的效率和便捷性。
 
-Paperless-ngx 对文档执行 OCR，添加可搜索和可选择的文本，甚至可以对仅使用图像扫描的文档进行添加。支持 PDF、图片、纯文本文件、Office 文档（Word、Excel、Powerpoint 和 LibreOffice 等效项）等。
+![](https://img.newzone.top/2024-03-21-10-56-33.png?imageMogr2/format/webp)
 
-## 部署命令
+选择 Paperless-ngx 的原因在于其强大的文档扫描、识别和管理功能。通过 OCR 技术，即使是图像扫描的文档也能添加上可搜索和可选择的文本，极大地方便了日后的文档检索和管理。
+
+## 部署代码
+
+推荐通过 Docker Compose 部署 Paperless-ngx，详情请见 [Docker Compose 部署教程](./#%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B)。以下是 Docker Compose 配置示例：
 
 ```yml
 # https://github.com/paperless-ngx/paperless-ngx/blob/main/docker/compose/docker-compose.portainer.yml
@@ -67,11 +71,13 @@ services:
       PAPERLESS_TIME_ZONE: Asia/Shanghai
 ```
 
-部署完成后，需用 ssh 终端执行命令。
+部署完成后，需用 ssh 终端执行以下命令：
 
 ```shell
 sudo docker exec -it paperlesswebserver bash
 python3 manage.py createsuperuser
 ```
 
-依次输入 username、email、password。如果出现提示密码较弱，输入 y 继续。之后这些都可以在后台再修改。
+按照提示输入用户名、电子邮件和密码即可。如果出现提示密码较弱，输入 `y` 继续。之后这些配置都可以在后台再修改。
+
+完成以上步骤后，通过 `http://<你的服务器IP或域名>:9035` 访问 Paperless-ngx，开始享受高效的文档管理体验。

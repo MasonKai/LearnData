@@ -8,7 +8,9 @@ order: 201
 
 若你想要自行部署 CORS Anywhere，可以自建镜像，或者使用我提供的预先配置好的 Docker 镜像 [rockben/cors-anywhere](https://hub.docker.com/r/rockben/cors-anywhere)。
 
-以下是使用 Docker 部署 CORS Anywhere 的示例配置：
+## 部署代码
+
+推荐通过 Docker Compose 部署 CORS Anywhere，详情请见 [Docker Compose 部署教程](./#%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B)。以下是 Docker Compose 配置示例：
 
 ```yml
 version: "3"
@@ -22,9 +24,9 @@ services:
     restart: unless-stopped
 ```
 
-## 使用示例
+部署完成后，通过访问 `http://<你的服务器IP或域名>:49152`，你就能开始使用 CORS Anywhere API 服务。
 
-在 JavaScript 中利用 CORS Anywhere 的过程非常直接。以下是一个简单的调用示例：
+在前端项目中使用 CORS Anywhere 非常直接，以下是一个简单的 AJAX 请求示例：
 
 ```javascript
 var corsAnywhereUrl = "http://192.168.2.3:49152/";
@@ -42,7 +44,7 @@ $.ajax({
 
 ## 构建自定义 Docker 镜像
 
-你还可以通过提供的 Dockerfile 根据自己的需求构建一个专属的 CORS Anywhere 镜像。
+如果你有自定义 CORS Anywhere 配置的需求，可以根据以下 Dockerfile 来构建专属镜像：
 
 ```dockerfile
 # 使用 Alpine 为基础镜像，该镜像体积较小

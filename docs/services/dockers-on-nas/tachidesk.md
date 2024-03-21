@@ -10,6 +10,10 @@ order: 12
 
 如果你仅使用 Android 设备，可以选择使用开源漫画阅读器 [Tachiyomi](https://github.com/tachiyomiorg/tachiyomi)。如果你需要访问一些老旧漫画作品，还可以考虑使用 [Cimoc](https://github.com/Haleydu/Cimoc)。
 
+## 部署代码
+
+推荐通过 Docker Compose 部署 Tachidesk，详情请见 [Docker Compose 部署教程](./#%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B)。以下是 Docker Compose 配置示例：
+
 ```yml
 version: "3.7"
 services:
@@ -33,6 +37,10 @@ services:
       - "4567:4567"
     restart: on-failure:3
 ```
+
+部署完成后，通过浏览器访问 `http://<你的服务器IP或域名>:4567` 即可在线阅读本地漫画。
+
+## 配置
 
 你可以将本地的漫画资源导入到路径 `/volume1/docker/tachidesk/local`。请注意，导入的漫画需要按文件夹分类，并确保图片按文件名排序。
 

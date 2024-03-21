@@ -14,7 +14,7 @@ order: 101
 
 [Nginx Proxy Manager](https://github.com/jlesage/docker-nginx-proxy-manager) 提供了一个的图形界面，方便用户管理反向代理和 SSL 证书。它的 SSL 证书有效期长达三个月，并支持自动续期。由于国内家用宽带常常不支持开放 80 和 443 端口，所以这里推荐使用一个修改版的 Nginx Proxy Manager 而非官方容器，同时也不建议使用 Caddy。如果你对 Nginx Proxy Manager 还不够熟悉，也可以尝试使用国内开发的 [nginxWebUI](https://www.nginxwebui.cn/product.html)，它也提供了图形化配置、SSL 证书申请和自动续签等功能。
 
-下面是通过 Docker 部署 Nginx Proxy Manager 的配置文件：
+推荐通过 Docker Compose 部署 Nginx Proxy Manager，详情请见 [Docker Compose 部署教程](./#%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B)。以下是 Docker Compose 配置示例：
 
 ```yml
 version: "3.8"
@@ -64,4 +64,4 @@ volumes:
   caddy_config:
 ```
 
-通过上述配置，无论是 Nginx Proxy Manager 还是 Caddy，你都可以轻松地部署和管理你的反向代理服务。这将为你的网络环境提供更高的数据安全性和便捷的访问管理。希望这些信息能帮助你更好地利用反向代理技术，为你的网络环境带来显著的改善。如果你在部署或使用过程中遇到任何问题，欢迎在评论区留言交流，我们可以一起探讨解决方案。
+无论选择 Nginx Proxy Manager 还是 Caddy，你都可以轻松地部署和管理你的反向代理服务。这将为你的网络环境提供更高的数据安全性和便捷的访问管理。希望这些信息能帮助你更好地利用反向代理技术，为你的网络环境带来显著的改善。如果你在部署或使用过程中遇到任何问题，欢迎在评论区留言交流，我们可以一起探讨解决方案。

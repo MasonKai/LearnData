@@ -6,9 +6,7 @@ order: 5
 
 [XTeVe](https://github.com/xteve-project/xTeVe) 是一款功能强大的 IPTV 管理工具，专为那些希望合并、管理和定制 IPTV 源的用户设计。无论是合并 M3U 或 XMLTV 文件，自动更新这些文件，还是导出供 Plex 和 Emby 使用，xTeVe 都能提供灵活的解决方案。此外，xTeVe 还支持频道过滤、频道信息编辑（包括名称、台标、分组、排序和分类）、为每个频道设置独立的节目单、设置缓存等高级功能。
 
-Github 和 Gitee 上有许多 IPTV 源。例如，国外的 IPTV 源可以通过 <https://github.com/iptv-org/iptv> 获取。同时，您可以通过以下链接进行频道搜索：<https://iptv-org.github.io/> 和 <http://tonkiang.us>。
-
-xTeVe 的默认端口是 34400，其管理界面可通过访问 `:34400/web/` 来进入。
+Github 和 Gitee 上有许多 IPTV 源。例如，国外的 IPTV 源可以通过 <https://github.com/iptv-org/iptv> 获取。同时，你可以通过以下链接进行频道搜索：<https://iptv-org.github.io/> 和 <http://tonkiang.us>。
 
 ## 设置指南
 
@@ -28,7 +26,7 @@ xTeVe 的默认端口是 34400，其管理界面可通过访问 `:34400/web/` �
 
 ## 部署 xTeVe
 
-以下是 xTeVe 部署的 Docker Compose 配置示例：
+推荐通过 Docker Compose 部署 xTeVe，详情请见 [Docker Compose 部署教程](./#%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B)。以下是 Docker Compose 配置示例：
 
 ```yml
 version: '3'
@@ -51,4 +49,4 @@ services:
         max-file: '3'
 ```
 
-通过上述配置和步骤，您可以搭建一个个性化、高效管理的 IPTV 服务器，享受丰富多样的电视直播内容。无论是家庭娱乐还是个人爱好，xTeVe 都能满足您的需求，为您提供更自由、更灵活的电视观看体验。
+xTeVe 服务默认监听在 34400 端口，你可以通过访问 `http://<你的服务器IP或域名>:34400/web/` 来打开管理界面。xTeVe 是一个个性化、高效管理的 IPTV 服务器，享受丰富多样的电视直播内容。无论是家庭娱乐还是个人爱好，xTeVe 都能满足你的需求，为你提供更自由、更灵活的电视观看体验。

@@ -4,82 +4,84 @@ title: n8n：工作流自动化
 order: 81
 ---
 
-[n8n](https://github.com/n8n-io/n8n) 是一款功能强大的工作流程自动化工具，可以自行托管，并允许用户添加自定义函数、逻辑和应用程序。n8n 社区提供了丰富的第三方 API 节点，方便用户连接和使用主流的海外服务。
+[n8n](https://github.com/n8n-io/n8n) 是一款功能强大的工作流程自动化工具，可以自行托管，并允许用户添加自定义函数、逻辑和应用程序。n8n 社区提供了丰富的第三方 API 节点，方便用户连接和使用主流的海外服务。本文将详细介绍 n8n 的部署流程、核心功能及实用技巧，旨在帮助读者有效地掌握并应用这一工具，无论是对于自动化工作流程的新手还是有经验的专业人士。
 
-对于初学者，建议先跟随教程 [基于 n8n 的开源自动化：以滴答清单同步 Notion 为例](https://sspai.com/prime/story/automation-n8n) 来熟悉 n8n 的基本操作和广泛应用。更多关于 n8n 的使用案例和详细介绍，可以参考 [使用自动化工作流聚合信息摄入和输出](https://reorx.com/blog/sharing-my-footprints-automation/)。
+对于初学者，建议先跟随教程 [基于 n8n 的开源自动化：以滴答清单同步 Notion 为例](https://sspai.com/prime/story/automation-n8n) 来熟悉 n8n 的基本操作和广泛应用。此外，更多关于 n8n 的使用案例和详细介绍，可以参考 [使用自动化工作流聚合信息摄入和输出](https://reorx.com/blog/sharing-my-footprints-automation/)。
 
-## 部署 n8n
+## n8n 的部署步骤
 
 1. 在桌面终端运行 `git clone https://github.com/n8n-io/n8n.git` 命令，下载 n8n 的仓库文件，并将其复制到 NAS。
 2. 切换路径 `cd /volume3/storage/n8n/docker/compose/withPostgres`。
-3. 运行 `sudo docker-compose up -d` 命令进行部署。
+3. 在该目录下编辑 `docker-compose.yml` 文件，内容如下：
 
-在初次部署时，你可能会遇到 `for n8n Container "5a6edd16e779" is unhealthy.` 的提示，这时只需忽略该提示，再次运行 `sudo docker-compose up -d` 命令即可解决问题。如果在更新 git 仓库文件后重新部署时遇到提示无需更新的情况，你可以先删除容器，然后重新部署。
+    ```yml
+    # https://github.com/n8n-io/n8n/tree/master/docker/compose/withPostgres
+    # https://docs.n8n.io/hosting/installation/server-setups/docker-compose/#5-create-docker-compose-file
+    version: "3.8"
 
-下面是部署 n8n 的 Docker 配置文件：
-
-```yml
-# https://github.com/n8n-io/n8n/tree/master/docker/compose/withPostgres
-# https://docs.n8n.io/hosting/installation/server-setups/docker-compose/#5-create-docker-compose-file
-version: "3.8"
-
-services:
-  n8n-postgres:
-    image: postgres:11
-    container_name: n8n-postgres
-    restart: always
-    environment:
-      - POSTGRES_USER
-      - POSTGRES_PASSWORD
-      - POSTGRES_DB
-      - POSTGRES_NON_ROOT_USER
-      - POSTGRES_NON_ROOT_PASSWORD
-    volumes:
-      - /volume1/docker/n8n/db:/var/lib/postgresql/data
-      - ./init-data.sh:/docker-entrypoint-initdb.d/init-data.sh
-    healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "pg_isready -h localhost -U ${POSTGRES_USER} -d ${POSTGRES_DB}",
-        ]
-      interval: 5s
-      timeout: 5s
-      retries: 10
-
-  n8n:
-    image: docker.n8n.io/n8nio/n8n
-    container_name: n8n
-    restart: always
-    environment:
-      - N8N_HOST=${N8N_HOST}
-      - NODE_ENV=production
-      - N8N_EDITOR_BASE_URL=${N8N_EDITOR_BASE_URL}
-      - VUE_APP_URL_BASE_API=${N8N_EDITOR_BASE_URL}
-      - WEBHOOK_URL=${N8N_EDITOR_BASE_URL}
-      - DB_TYPE=postgresdb
-      - DB_POSTGRESDB_HOST=n8n-postgres
-      - DB_POSTGRESDB_PORT=5432
-      - DB_POSTGRESDB_DATABASE=${POSTGRES_DB}
-      - DB_POSTGRESDB_USER=${POSTGRES_NON_ROOT_USER}
-      - DB_POSTGRESDB_PASSWORD=${POSTGRES_NON_ROOT_PASSWORD}
-      - TZ=Asia/Shanghai
-    ports:
-      - 5720:5678
-    links:
-      - n8n-postgres
-    volumes:
-      - /volume1/docker/n8n/storage:/home/node/.n8n
-    depends_on:
+    services:
       n8n-postgres:
-        condition: service_healthy
-```
+        image: postgres:11
+        container_name: n8n-postgres
+        restart: always
+        environment:
+          - POSTGRES_USER
+          - POSTGRES_PASSWORD
+          - POSTGRES_DB
+          - POSTGRES_NON_ROOT_USER
+          - POSTGRES_NON_ROOT_PASSWORD
+        volumes:
+          - /volume1/docker/n8n/db:/var/lib/postgresql/data
+          - ./init-data.sh:/docker-entrypoint-initdb.d/init-data.sh
+        healthcheck:
+          test:
+            [
+              "CMD-SHELL",
+              "pg_isready -h localhost -U ${POSTGRES_USER} -d ${POSTGRES_DB}",
+            ]
+          interval: 5s
+          timeout: 5s
+          retries: 10
+
+      n8n:
+        image: docker.n8n.io/n8nio/n8n
+        container_name: n8n
+        restart: always
+        environment:
+          - N8N_HOST=${N8N_HOST}
+          - NODE_ENV=production
+          - N8N_EDITOR_BASE_URL=${N8N_EDITOR_BASE_URL}
+          - VUE_APP_URL_BASE_API=${N8N_EDITOR_BASE_URL}
+          - WEBHOOK_URL=${N8N_EDITOR_BASE_URL}
+          - DB_TYPE=postgresdb
+          - DB_POSTGRESDB_HOST=n8n-postgres
+          - DB_POSTGRESDB_PORT=5432
+          - DB_POSTGRESDB_DATABASE=${POSTGRES_DB}
+          - DB_POSTGRESDB_USER=${POSTGRES_NON_ROOT_USER}
+          - DB_POSTGRESDB_PASSWORD=${POSTGRES_NON_ROOT_PASSWORD}
+          - TZ=Asia/Shanghai
+        ports:
+          - 5720:5678
+        links:
+          - n8n-postgres
+        volumes:
+          - /volume1/docker/n8n/storage:/home/node/.n8n
+        depends_on:
+          n8n-postgres:
+            condition: service_healthy
+    ```
+
+4. 运行 `sudo docker-compose up -d` 命令进行部署。
+
+部署完成后，通过浏览器访问 `http://<你的服务器IP或域名>:5720` 即可实现 n8n 自动化。
+
+在初次部署时，可能会遇到 `for n8n Container "5a6edd16e779" is unhealthy.` 的提示，这时只需忽略该提示，再次运行 `sudo docker-compose up -d` 命令即可解决问题。如果在更新 git 仓库文件后重新部署时遇到提示无需更新的情况，你可以先删除容器，然后重新部署。
 
 在上述文件中，`/volume1/docker/n8n` 被指定为 n8n 的配置目录，你需要确保 n8n 有该路径的读写权限，否则项目可能会在启动时报错。
 
 ## 环境变量
 
-在当前目录的 `.env` 文件中，可以更改 PostgreSQL 的默认数据库名称、用户和密码。
+在 withPostgres 目录的 `.env` 文件中，可以更改 PostgreSQL 的默认数据库名称、用户和密码。
 
 ```env
 N8N_HOST=localnas.com

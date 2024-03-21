@@ -32,7 +32,7 @@ order: 5
 
 ## 部署代码
 
-以下是一个基本的 Docker Compose 文件示例，用于设置 qBittorrent：
+推荐通过 Docker Compose 部署 qBittorrent，详情请见 [Docker Compose 部署教程](./#%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B)。以下是 Docker Compose 配置示例：
 
 ```yml
 # https://hub.docker.com/r/linuxserver/qbittorrent  注意将下载目录授权到 Everyone
@@ -56,4 +56,6 @@ services:
     restart: unless-stopped
 ```
 
-在部署之后，请进入「选项」>「连接」，将监听端口改为 49156。有关其他设置，请参考[群晖使用 qbittorrent](https://blog.csdn.net/weixin_45120915/article/details/114691473)。
+部署完成后，通过浏览器访问 `http://<你的服务器IP或域名>:49155` 即可使用 qBittorrent 下载。然后，进入「选项」>「连接」，将监听端口改为 49156，以避免默认端口问题。
+
+有关其他设置，请参考[群晖使用 qbittorrent](https://blog.csdn.net/weixin_45120915/article/details/114691473)。

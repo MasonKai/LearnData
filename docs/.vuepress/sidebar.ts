@@ -180,7 +180,7 @@ export default sidebar({
       icon: "",
       prefix: "",
       collapsible: true,
-      children: ["reverse-proxy.md", "cors-anywhere.md", "deeplx.md"],
+      children: ["reverse-proxy.md", "cors-anywhere.md", "deeplx.md", "portainer.md"],
     },
     {
       text: "其他",

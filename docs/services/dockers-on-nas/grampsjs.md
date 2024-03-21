@@ -6,7 +6,9 @@ order: 35
 
 [Gramps.js](https://github.com/gramps-project/Gramps.js) 是一款用于协作族谱编辑与展示的 Web 开源应用。它基于领开源家谱桌面应用程序 Gramps，并可与 Gramps 交互操作。不过，Gramps.js 的输入过程相对复杂，需要分别添加成员、家庭、事件、地点等元素，然后将它们组合在一起。第一次配置可能会花费一些时间，使用教程参考 [Gramps Web User guide](https://www.grampsweb.org/user-guide/)。
 
-我打算将家里的族谱电子化，并迁移到 Gramps 上。
+## 部署代码
+
+推荐通过 Docker Compose 部署 Gramps.js，详情请见 [Docker Compose 部署教程](./#%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B)。以下是 Docker Compose 配置示例：
 
 ```yml
 # https://www.grampsweb.org/Deployment/
@@ -51,3 +53,7 @@ services:
     container_name: grampsweb_redis
     restart: always
 ```
+
+部署完成后，通过浏览器访问 `http://<你的服务器IP或域名>:23300` 即可生成你的家谱。
+
+通过仔细规划和执行上述步骤，你将能够成功地将家族族谱电子化并利用 Gramps.js 管理。这个过程不仅是对家族历史的保存，也是对家族成员之间联系的加强。在此过程中，耐心和细致是成功的关键。祝你的电子族谱项目顺利进行，成为家族历史传承的宝贵财富。

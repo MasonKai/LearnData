@@ -20,7 +20,9 @@ order: 23
 - **公开推送的消息：** ntfy 设计时考虑到消息的公开性，虽然大部分消息是公开推送的，但用户依然可以控制消息的接收方。
 - **桌面提醒的解决方案：** 虽然 ntfy 本身没有专门的桌面应用，但 PC 用户可以通过安装 [ntfy-browser](https://github.com/johman10/ntfy-browser) 浏览器扩展来接收通知。
 
-## 部署命令
+## 部署代码
+
+推荐通过 Docker Compose 部署 ntfy，详情请见 [Docker Compose 部署教程](./#%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B)。以下是 Docker Compose 配置示例：
 
 ```yml
 version: "2.3"
@@ -49,3 +51,5 @@ services:
 ```
 
 **配置注意**：默认情况下，ntfy 使用 80 端口，但更改为 8080 端口可以避免潜在的冲突。您需要在`/volume1/docker/ntfy/etc`目录下新建`server.yml`文件，并添加`listen-http: ":8080"`配置。查看更多服务器配置选项，可以参考[官方配置样例](https://github.com/binwiederhier/ntfy/blob/main/server/server.yml)。
+
+部署完成后，通过浏览器访问 `http://<你的服务器IP或域名>:5730` 即可访问 ntfy 服务。

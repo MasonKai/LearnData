@@ -6,6 +6,12 @@ order: 84
 
 [青龙面板](https://github.com/whyour/qinglong) 是支持 Python3、JavaScript、Shell、Typescript 的定时任务管理平台，但现在多被用于京东薅羊毛，比如领京东、价保。安装好 Docker 后的配置流程参考 [青龙面板应用——安装依赖拉取仓库运行京东脚本（保姆级图文）](https://blog.csdn.net/u011027547/article/details/130703685)。
 
+![](https://img.newzone.top/2024-03-21-10-13-00.png?imageMogr2/format/webp)
+
+## 部署代码
+
+推荐通过 Docker Compose 部署青龙面板，详情请见 [Docker Compose 部署教程](./#%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B)。以下是 Docker Compose 配置示例：
+
 ```yml
 # https://github.com/whyour/qinglong/blob/develop/docker/docker-compose.yml
 version: "2"
@@ -26,7 +32,9 @@ services:
     restart: unless-stopped
 ```
 
-配置注意：
+部署完成后，通过浏览器访问 `http://<你的服务器IP或域名>:5700` 即可使用青龙面板。
+
+## 配置注意
 
 - 在运行脚本之前，请确保已安装所有必要的依赖。
 - 定期运行：`0 0 7 * * ?` 表示每天 7 点触发。其中第一个数字代表秒，第二个数字代表分钟，第三个数字代表小时，第四个数字代表每月的日期，第五个数字代表月份，第六个数字代表每周的星期几。这些数字之间使用空格分隔。要表示不限制的时间段，可以使用 `*` 号，要表示定期运行的时间段，可以使用 `?` 替代，要表示间隔运行的时间段，可以使用 `*/数字` 替代。如果需要在同一个时间位上设置多个选项，可以使用逗号 `,` 连接，如果需要设置一个时间段，可以使用短划线 `-` 连接。对于每天的运行，可以在日期位或星期位使用 `?`。
