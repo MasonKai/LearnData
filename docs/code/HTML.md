@@ -217,7 +217,7 @@ width="2400px"
 </div>
 <div id="mobile" style="text-align:center;display: none;">
   <img
-    src="http://iluminage-cdn.oss-cn-shanghai.aliyuncs.com/upload/202108/1628149761.png"
+    src="https://iluminage-cdn.oss-cn-shanghai.aliyuncs.com/upload/202108/1628149761.png"
   />
 </div>
 ```

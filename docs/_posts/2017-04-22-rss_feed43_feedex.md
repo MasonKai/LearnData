@@ -10,13 +10,15 @@ tag:
 order: -2
 ---
 
+> Feed43 在 2023 年 8 月停止服务。如有需求，可尝试使用 `http://45.79.136.9/`，该网站提供相似功能。但需注意，其建立者身份不明，且无法保证其稳定性。
+
 迷上 IFTTT 等自动化应用后，我需要为各种不同的网页定制 RSS 源。其中，最容易入门的工具是 FEED43。本文是一篇介绍如何使用 FEED43 定制 RSS 源的入门指南。
 
 **► 开始烧制属于自己的 feed**
 
 ## 1. 进入网页
 
-[FEED43](http://www.feed43.com/) 不需要注册，点击「Create your own feed」即可使用。
+[FEED43](http://45.79.136.9/) 不需要注册，点击「Create your own feed」即可使用。
 
 ![](https://pic1.zhimg.com/v2-b5da0b08f632376fad3925a779e373b4_r.jpg)
 

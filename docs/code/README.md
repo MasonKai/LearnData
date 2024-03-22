@@ -12,15 +12,15 @@ icon: code
 
 - 前端框架：[Vue.js](https://cn.vuejs.org/)，[React](https://zh-hans.react.dev/)
 - UI 框架：[Ant Design](https://ant-design.antgroup.com/index-cn)，[Element Plus](https://element-plus.gitee.io/zh-CN/guide/quickstart.html)
-  - CSS 预编译：[Stylus](https://stylus-lang.com/) / [Sass](https://sass.bootcss.com/documentation) / [Less](http://lesscss.cn/)
+  - CSS 预编译：[Stylus](https://stylus-lang.com/) / [Sass](https://sass.bootcss.com/documentation) / [Less](https://lesscss.cn/)
   - CSS 后处理器：PostCSS，[tailwindcss](https://www.tailwindcss.cn/docs)
 - 网站生成工具：[VuePress](https://v2.vuepress.vuejs.org/zh/guide/getting-started.html)，[Docusaurus](https://docusaurus.io/zh-CN/docs)，[Next.js](https://nextjs.org/docs)
 
 - Node.js 框架：[Midway](https://www.midwayjs.org/docs/intro)
 - HTTP 工具：[Axios](https://axios-http.com/)
   - Git Hook 工具：[husky](https://typicode.github.io/husky/#/) + [lint-staged](https://github.com/okonet/lint-staged)
-  - 代码规范：[EditorConfig](http://editorconfig.org) + [Prettier](https://prettier.io/) + [ESLint](https://eslint.org/) + [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript#translation)
-  - 提交规范：[Commitizen](http://commitizen.github.io/cz-cli/) + [Commitlint](https://commitlint.js.org/#/)
+  - 代码规范：[EditorConfig](https://editorconfig.org/) + [Prettier](https://prettier.io/) + [ESLint](https://eslint.org/) + [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript#translation)
+  - 提交规范：[Commitizen](https://commitizen.github.io/cz-cli/) + [Commitlint](https://commitlint.js.org/#/)
   - 单元测试：[vue-test-utils](https://next.vue-test-utils.vuejs.org/) + [jest](https://jestjs.io/) + [vue-jest](https://github.com/vuejs/vue-jest) + [ts-jest](https://kulshekhar.github.io/ts-jest/)
   - 自动部署：[GitHub Actions](https://docs.github.com/cn/actions/learn-github-actions)
 
