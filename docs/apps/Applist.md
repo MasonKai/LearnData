@@ -43,7 +43,7 @@ Windows 自用软件，以开源软件为主。
 
 字幕工具：[ChineseSubtitleConversionTool](https://github.com/xiaoxinpro/ChineseSubtitleConversionTool)（繁简转换）& Arctime Pro & [VideoSrt](https://github.com/wxbool/video-srt-windows) & 人人译视界
 
-视频下载：[youtube-dl](https://github.com/ytdl-org/youtube-dl) & [哔哩下载姬](https://github.com/leiurayer/downkyi) & [BBDown](https://github.com/nilaoda/BBDown)（命令行式哔哩哔哩下载器）
+视频下载：[JDownloader](https://jdownloader.org/download/index)（支持 YouTube playlist） & [youtube-dl](https://github.com/ytdl-org/youtube-dl) & [哔哩下载姬](https://github.com/leiurayer/downkyi) & [BBDown](https://github.com/nilaoda/BBDown)（命令行式哔哩哔哩下载器）
 
 影视管理：[tinyMediaManager](https://xiaoyaliu.notion.site/dc28a32c807d418691b83519fa523306)（刮削），易影视（本地管理）
 

@@ -49,6 +49,8 @@ services:
     volumes:
       - /volume1/docker/qbittorrent/config:/config
       - /volume2/Backup/downloads:/downloads
+      # - /volume1/tvshows:/tvshows
+      # - /volume4/movies:/movies
     ports:
       - 49155:49155
       - 49156:49156

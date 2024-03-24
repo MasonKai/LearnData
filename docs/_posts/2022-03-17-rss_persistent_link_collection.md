@@ -41,8 +41,6 @@ order: -42
 
 - **艾瑞网**：`https://rss.aishort.top/?type=iresearch`
 
-- **爱范儿|AppSolution**：`https://rss.aishort.top/?type=AppSolution`
-
 ## 奇思妙想
 
 每天吸收些稀奇古怪的知识，期待引发后续的灵机一动。
