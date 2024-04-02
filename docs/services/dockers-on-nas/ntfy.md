@@ -40,7 +40,7 @@ services:
     ports:
       - 5730:8080
     healthcheck: # optional: remember to adapt the host:port to your environment
-        test: ["CMD-SHELL", "wget -q --tries=1 http://localhost:5730/v1/health -O - | grep -Eo '\"healthy\"\\s*:\\s*true' || exit 1"]
+        test: ["CMD-SHELL", "wget -q --tries=1 http://localhost:8080/v1/health -O - | grep -Eo '\"healthy\"\\s*:\\s*true' || exit 1"]
         interval: 60s
         timeout: 10s
         retries: 3

@@ -214,6 +214,10 @@ SMTP_AUTHENTICATION=plain
 SMTP_ENABLE_STARTTLS_AUTO=true
 SMTP_SSL=true
 SEND_EMAIL_IN_DEVELOPMENT=true
+
+# Maximum runtime of background jobs in minutes
+# 默认为2分钟，不过如果你数据较多，有可能需要调整此项
+DELAYED_JOB_MAX_RUNTIME=10
 ```
 
 Install Gems 前用子账户重新设置运行目录权限 `sudo chown -R huginn:huginn /home/huginn`，防止报错 `Your user account isn't allowed to install to the system RubyGems`。

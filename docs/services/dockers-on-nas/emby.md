@@ -12,7 +12,7 @@ Emby 的视频播放和直播功能需要 Emby Premiere 订阅。终身会员的
 
 购买了 Emby 授权并拥有有效的 m3u 文件后，就可以在多种设备上观看直播电视了。m3u 文件是一个文本格式文件，包含了电视直播流的网络地址，使 Emby 能够抓取并播放内容。然而，IPv4 地址可能会快速过期，而 IPv6 地址则可能需要在路由器上进行额外设置。你可以通过访问 [IPv6 连接测试](https://test-ipv6.com/) 来检查网络支持情况。
 
-考虑到稳定性和易管理性，自制 IPTV 源是一个好选择。推荐使用 [fanmingming live](https://github.com/fanmingming/live) 来制作 IPTV 文件。此外，还可以在 <https://iptv-org.github.io/> 和 <http://tonkiang.us> 查找更多电视源。
+考虑到稳定性和易管理性，自制 IPTV 源是一个好选择。推荐使用 [fanmingming live](https://github.com/fanmingming/live) 来制作 IPTV 文件。此外，还可以在 <https://iptv-org.github.io/> 和 <http://tonkiang.us> 查找更多电视源，或者部署 [iptv-sources](https://github.com/HerbertHe/iptv-sources) 来更新 iptv 源。
 
 将编辑好的 m3u 文件保存至 Emby 服务器的 `config` 目录下，例如 `/config/config/IPTV.m3u`。添加电视源时，请按照以下步骤操作：
 

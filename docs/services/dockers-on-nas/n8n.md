@@ -6,7 +6,7 @@ order: 81
 
 [n8n](https://github.com/n8n-io/n8n) 是一款功能强大的工作流程自动化工具，可以自行托管，并允许用户添加自定义函数、逻辑和应用程序。n8n 社区提供了丰富的第三方 API 节点，方便用户连接和使用主流的海外服务。本文将详细介绍 n8n 的部署流程、核心功能及实用技巧，旨在帮助读者有效地掌握并应用这一工具，无论是对于自动化工作流程的新手还是有经验的专业人士。
 
-对于初学者，建议先跟随教程 [基于 n8n 的开源自动化：以滴答清单同步 Notion 为例](https://sspai.com/prime/story/automation-n8n) 来熟悉 n8n 的基本操作和广泛应用。此外，更多关于 n8n 的使用案例和详细介绍，可以参考 [使用自动化工作流聚合信息摄入和输出](https://reorx.com/blog/sharing-my-footprints-automation/)。
+对于初学者，建议先跟随教程 [基于 n8n 的开源自动化：以滴答清单同步 Notion 为例](https://sspai.com/prime/story/automation-n8n) 来熟悉 n8n 的基本操作和广泛应用。此外，更多关于 n8n 的使用案例和详细介绍，可以参考 [使用自动化工作流聚合信息摄入和输出](https://reorx.com/blog/sharing-my-footprints-automation/) 和 [开源工作流自动化神器 n8n](https://blog.csdn.net/alex_yangchuansheng/article/details/122295193)。
 
 ## n8n 的部署步骤
 

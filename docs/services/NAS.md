@@ -36,9 +36,9 @@ NAS 主要用于 Docker 服务、影视管理和文件存储备用这三方面�
 
 ### 常用
 
-- [qBittorrent](https://registry.hub.docker.com/r/linuxserver/qbittorrent/)：请修改所有默认端口，以避免可能的错误。对于 PT 下载，请关闭 `BitTorrent - DHT` 和其他隐私选项，将做种时间缩短至一小时，并为下载文件添加 Everyone 权限。有关其他设置，请参考[群晖使用 qbittorrent](https://blog.csdn.net/weixin_45120915/article/details/114691473)。为了解决登录和密码问题，请先停止容器，并将 `config/qBittorrent/qBittorrent.conf` 文件中的 `WebUI\AuthSubnetWhitelist` 设置为 `0.0.0.0/0`，这样即可无需密码登录 qBittorrent WebUI。
+- [qBittorrent](./dockers-on-nas/qbittorrent.md)：请修改所有默认端口，以避免可能的错误。对于 PT 下载，请关闭 `BitTorrent - DHT` 和其他隐私选项，将做种时间缩短至一小时，并为下载文件添加 Everyone 权限。有关其他设置，请参考[群晖使用 qbittorrent](https://blog.csdn.net/weixin_45120915/article/details/114691473)。为了解决登录和密码问题，请先停止容器，并将 `config/qBittorrent/qBittorrent.conf` 文件中的 `WebUI\AuthSubnetWhitelist` 设置为 `0.0.0.0/0`，这样即可无需密码登录 qBittorrent WebUI。
 - [qiandao](https://github.com/AragonSnow/qiandao)：自动签到开源框架，需搭配浏览器扩展 [get-cookies](https://github.com/ckx000/get-cookies) 使用，可导出配置。
-- [MT Photos](/services/dockers-on-nas/mt-photos)：支持自动整理、分类您的照片，比如：时间、地点、人物、照片类型。需要 99 元买断服务，每周连线检查授权状态。比较喜欢的是，支持网页分享特定图片影集，适合将宝宝照片批量分享给家人。
+- [MT Photos](./dockers-on-nas/mt-photos.md)：支持自动整理、分类您的照片，比如：时间、地点、人物、照片类型。需要 99 元买断服务，每周连线检查授权状态。比较喜欢的是，支持网页分享特定图片影集，适合将宝宝照片批量分享给家人。
 - [PhotoPrism](https://docs.photoprism.app/)：基于 ai 私有化部署的个人相册，但实际很多照片无法识别，无法对外分享。如果部署时出错，则尝试删除数据库文件夹下的内容。地点标记功能非常强大，类似本地版 Google Photos。
 - [Immich](https://github.com/immich-app/immich): 相册备份、浏览，提供 web 端、移动端 app。但不支持扫描已有文件。
 - [watchtower](https://containrrr.dev/watchtower/)：监控并更新 Docker 容器。
@@ -48,20 +48,20 @@ NAS 主要用于 Docker 服务、影视管理和文件存储备用这三方面�
 ### 资讯
 
 - RSSHub：无需保存数据，pubData 为 GMT 时区，普通用户无法更改，Docker Timezone 设置也不会有改变。
-- Huginn：定期备份抓取脚本，数据库保存在本地。
+- [Huginn](./Huginn.md)：定期备份抓取脚本，数据库保存在本地。
 - Tiny Tiny RSS：定期备份订阅源和设置，自动更新，可配置全文插件 [mercury-parser-api](https://registry.hub.docker.com/r/wangqiru/mercury-parser-api)。
 - Cloudflare Tunnels：可以将局域网内容转发到外网。不过，每次容器重启后都需要重新构建，`sudo docker run --name cloudflared -d --restart unless-stopped cloudflare/cloudflared:latest tunnel --no-autoupdate run --token [Your Tokens]`。后期考虑是否将启动命令放入容器。
 - [Check 酱](https://github.com/easychen/checkchan-dist)：监测网页内容变化，并发送异动到微信。亦支持 http status、json 和 rss 监测。配合自架云端，关电脑后也能运行。同类工具有 [changedetection.io](https://github.com/dgtlmoon/changedetection.io)。
 
 ### 娱乐
 
-- [AList](https://github.com/alist-org/alist)：开源的网盘管理工具，还支持对象存储，本地存储，FTP 等等。
-- [Navidrome](https://www.navidrome.org/docs/installation/docker/)：NAS 上的私人专属在线音乐库。
-- [Emby](/services/dockers-on-nas/)/Plex：这两者都是热门的视频流媒体解决方案。终身会员的价格为 119 美元。Jellyfin 作为一个开源免费的选择，同样是一个不错的考虑。
+- [AList](./dockers-on-nas/alist.md)：开源的网盘管理工具，还支持对象存储，本地存储，FTP 等等。
+- [Navidrome](./dockers-on-nas/navidrome.md)：NAS 上的私人专属在线音乐库。
+- [Emby](./dockers-on-nas/emby.md)/Plex：这两者都是热门的视频流媒体解决方案。终身会员的价格为 119 美元。Jellyfin 作为一个开源免费的选择，同样是一个不错的考虑。
 - [LANraragi](https://github.com/Difegue/LANraragi)：免费开源的漫画管理器，支持 zip/rar/targz/lzma/7z/xz/cbz/cbr/pdf 多种格式，可从网页和 [第三方客户端](https://github.com/Difegue/LANraragi/blob/32cc991e8c5bae3bbd57d163278048c50159ae9f/tools/Documentation/advanced-usage/external-readers.md) 浏览。
-- [Tachidesk](/services/dockers-on-nas/tachidesk)：开源的漫画阅读应用，通过安装扩展插件，可以方便地订阅并聚合漫画源。使用前，需进入 Extensions，点右上角的 Enabled Languages 按钮，设置为中文源，然后会在页面底部发现中文漫画源。安装源后，进入 Souces 中点击进入对应源。
+- [Tachidesk](./dockers-on-nas/tachidesk.md)：开源的漫画阅读应用，通过安装扩展插件，可以方便地订阅并聚合漫画源。使用前，需进入 Extensions，点右上角的 Enabled Languages 按钮，设置为中文源，然后会在页面底部发现中文漫画源。安装源后，进入 Souces 中点击进入对应源。
 - [Komga](https://github.com/gotson/komga)：观看本地漫画。（还没用过，我习惯直接导入平板看）
-- [reader](/services/dockers-on-nas/reader)：阅读 3 的服务器版，摆脱客户端，网页版即可查看。自定义替换进入文章页面左侧的「设置」-「过滤规则管理」。
+- [reader](./dockers-on-nas/reader.md)：阅读 3 的服务器版，摆脱客户端，网页版即可查看。自定义替换进入文章页面左侧的「设置」-「过滤规则管理」。
 - [Tale Book](https://github.com/talebook/talebook)：基于 Calibre 的简单的个人图书管理系统，支持在线阅读，但阅读体验不强且 Bug 较多，个人更喜欢直接用 PC 端查看。
 - [Bilibili_Danmuji](https://github.com/zzcabc/Docker_Buildx_Danmuji)：B 站直播礼物答谢、定时广告、关注感谢，自动回复工具，房管工具，自动打卡，Bilibili 直播弹幕姬 (使用 websocket 协议)，java 版 B 站弹幕姬。部署 Docker 时需更新 jdr release 文件。
 - [无名杀](https://hub.docker.com/r/makedie/noname_kill)：部署在 NAS 上的三国杀游戏。
@@ -69,9 +69,11 @@ NAS 主要用于 Docker 服务、影视管理和文件存储备用这三方面�
 
 ### 自动化
 
-- [n8n](https://blog.csdn.net/alex_yangchuansheng/article/details/122295193)：开源 IFTTT 工具，偏重于云服务。
+- [n8n](./dockers-on-nas/n8n.md)：开源 IFTTT 工具，偏重于云服务。
 - [Node-RED](../family/HomeAutomation.html#node-red)：开源流处理，类似本地版的 IFTTT。
 - [Home Assistant](https://www.home-assistant.io/)：开源家庭自动化平台，可自定义集中管理各品牌的智能家居设备。米家设备需使用 hacs 下的集成 [Xiaomi Miot Auto](../family/HomeAutomation.html#home-assistant)。
+
+- [Nextcloud](./dockers-on-nas/nextcloud.md): 私有云盘，完成 PC 端文件同步、版本控制，提供 web 端、移动端 app。
 - [Monica](https://github.com/monicahq/monica)：Monica 允许人们记录所有关于朋友和家人的重要事情。喜欢和他们一起的活动。你最后一次打电话给某人的时候，你们谈了些什么。它会帮助你记住他们孩子的名字和年龄。它还能提醒你打电话给一个很久没联系的人。Monica 的容器设置查看 [Monica Docker](https://github.com/monicahq/docker)。`Me as a contact` 是它常年的一个 bug，可以通过指定数据库中的 users.me_contact_id 来解决。
 - [supermanito/Helloworld](https://supermanito.github.io/Helloworld/#/)：京东签到等脚本，功能很强大，没怎么研究。
 - [MoviePilot](https://github.com/jxxghp/MoviePilot) 是 NAStool 作者重新推出的 NAS 媒体库自动化管理工具，使用说明参考 [MoviePilot-Help](https://github.com/Putarku/MoviePilot-Help)。个人使用并不习惯使用，可能是我设置错了，使用后反而把媒体结构弄乱了。
@@ -80,7 +82,6 @@ NAS 主要用于 Docker 服务、影视管理和文件存储备用这三方面�
 
 ### 待了解
 
-- Nextcloud: 私有云盘，完成 PC 端文件同步、版本控制，提供 web 端、移动端 app。
 - [兰空图床](https://github.com/lsky-org/lsky-pro)：图床已经部署在七牛云，用 Picgo 上传，没感觉有必要用它。
 - [AutoBangumi](https://github.com/EstrellaXD/Auto_Bangumi)：自动追番器，用以替代自我审查的 Bilibili。
 - Clash：代理服务器。
